@@ -33,17 +33,6 @@ const options = Country.getAllCountries().map((country) => ({
   },
   label: country.name,
 }));
-// const cityOptions = City.getCitiesOfCountry(selectedC).map((city) => ({
-//   value: {
-//     latitude: city.latitude,
-//     longitude: city.longitude,
-//     countryCode: city.countryCode,
-//     name: city.name,
-//     stateCode: city.stateCode,
-//   },
-//   label: city.name,
-// }));
-
 const CityPicker = () => {
   const [selectedCountry, setSelectedCountry] = useState<option>(null);
   const [selectedCity, setSelectedCity] = useState<cityOption>(null);
@@ -55,9 +44,9 @@ const CityPicker = () => {
   };
   const handleSelectedCity = (option: cityOption) => {
     setSelectedCity(option);
-    // router.push(
-    //   `/location/${option?.value.latitude}/${option?.value.longitude}`
-    // );
+    router.push(
+      `/location/${option?.value.name}/${option?.value.latitude}/${option?.value.longitude}`
+    );
   };
   return (
     <div className="space-y-4">
